@@ -1,0 +1,6 @@
+applications:
+- pritunl
+parameters:
+  pritunl:
+    server:
+      enabled: true
