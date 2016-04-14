@@ -1,0 +1,3 @@
+name: "pritunl"
+version: "0.2"
+source: "https://github.com/tcpcloud/salt-formula-pritunl"
