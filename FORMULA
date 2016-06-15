@@ -1,0 +1,8 @@
+name: pritunl
+os: Debian
+os_family: Debian
+version: 201606
+release: 1
+summary: pritunl salt formula
+description: Install and configure pritunl system.
+top_level_dir: pritunl
