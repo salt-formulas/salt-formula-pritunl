@@ -10,6 +10,6 @@ Vcs-Git: https://github.com/tcpcloud/salt-formula-pritunl.git
 
 Package: salt-formula-pritunl
 Architecture: all
-Depends: ${misc:Depends}, salt-master, reclass
+Depends: ${misc:Depends}
 Description: pritunl salt formula
  Install and configure pritunl system.
