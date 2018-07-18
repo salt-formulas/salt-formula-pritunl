@@ -3,7 +3,7 @@
 
 pritunl_packages:
   pkg.latest:
-  - names: {{ common.pkgs }}
+  - names: {{ server.pkgs }}
 
 /etc/pritunl.conf:
   file.managed:
@@ -17,7 +17,7 @@ pritunl_packages:
 pritunl_service:
   service.running:
   - enable: true
-  - name: pritunl
+  - name: {{ server.service }}
   - watch:
     - file: /etc/pritunl.conf
 
