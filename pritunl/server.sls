@@ -33,13 +33,20 @@ pritunl_service:
   - watch:
     - file: /etc/pritunl.conf
 
-run_api:
+pritunl_cli_script:
+  file.managed:
+    - name: /var/lib/pritunl/pritunl.sh
+    - template: jinja
+    - source: salt://pritunl/files/pritunl.sh
+    - mode: 0700
+    - user: 'root'
+    - group: 'root'
+
+pritunl_initialize:
   cmd.run:
-  - name:  |
-        pritunl set app.acme_domain {{ grains.id }}
-        pritunl set app.acme_key "openssl genrsa 4096"
-        pritunl set app.acme_timestamp `python -c 'import time;print time.time()'`
-        pritunl set app.acme_renew 0
+  - name:  /var/lib/pritunl/pritunl.sh
+  - require:
+    - file: pritunl_cli_script
   - watch_in:
     - service: pritunl_service
 
